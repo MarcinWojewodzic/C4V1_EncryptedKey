@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP ESDALCL6-2SC6
+D TVS Diode Uni-Directional ESDALCL6-2SC6 Array 17V, SOT-23 6-Pin
+K
+F http://www.st.com/web/en/resource/technical/document/datasheet/DM00068844.pdf
+$ENDCMP
+#
+#End Doc Library

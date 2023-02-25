@@ -1,0 +1,29 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model ESDALCL6-2SC6
+#/221744/909145/2.49/6/3/Integrated Circuit
+DEF ESDALCL6-2SC6 IC 0 30 Y Y 1 F N
+F0 "IC" 1150 300 50 H V L CNN
+F1 "ESDALCL6-2SC6" 1150 200 50 H V L CNN
+F2 "SOT95P280X145-6N" 1150 100 50 H I L CNN
+F3 "http://www.st.com/web/en/resource/technical/document/datasheet/DM00068844.pdf" 1150 0 50 H I L CNN
+F4 "TVS Diode Uni-Directional ESDALCL6-2SC6 Array 17V, SOT-23 6-Pin" 1150 -100 50 H I L CNN "Description"
+F5 "1.45" 1150 -200 50 H I L CNN "Height"
+F6 "STMicroelectronics" 1150 -300 50 H I L CNN "Manufacturer_Name"
+F7 "ESDALCL6-2SC6" 1150 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "511-ESDALCL6-2SC6" 1150 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/ESDALCL6-2SC6?qs=uZT4uyn3SpyBaimojm4znA%3D%3D" 1150 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "ESDALCL6-2SC6" 1150 -700 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/esdalcl6-2sc6/stmicroelectronics" 1150 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X I/O1_1 1 0 0 200 R 50 50 0 0 B
+X GND 2 0 -100 200 R 50 50 0 0 W
+X I/O2_1 3 0 -200 200 R 50 50 0 0 B
+X I/O1_2 6 1300 0 200 L 50 50 0 0 B
+X VBUS 5 1300 -100 200 L 50 50 0 0 P
+X I/O2_2 4 1300 -200 200 L 50 50 0 0 B
+P 5 0 1 6 200 100 1100 100 1100 -300 200 -300 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library
