@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP WS2812B-V4
+D Programmable LED; SMD; 5050,PLCC4; RGB; 5x5x1.57mm; 3.75.3V
+K
+F https://wwwhttps://www.tme.eu/Document/37f94e8eed0435a50244cd311122890b/WS2812B-V4.pdf.tme.eu/Document/37f94e8eed0435a50244cd311122890b/WS2812B-V4.pdf
+$ENDCMP
+#
+#End Doc Library

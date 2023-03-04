@@ -5,4 +5,5 @@
   (lib (name ESDALCL6-2SC6)(type Legacy)(uri ${KIPRJMOD}/ESDALCL6-2SC6.lib)(options "")(descr ""))
   (lib (name W25Q16JVSNIQ)(type Legacy)(uri ${KIPRJMOD}/W25Q16JVSNIQ.lib)(options "")(descr ""))
   (lib (name MB85RS256TYPNF-G-AWERE2)(type Legacy)(uri ${KIPRJMOD}/MB85RS256TYPNF-G-AWERE2.lib)(options "")(descr ""))
+  (lib (name WS2812B-V4)(type Legacy)(uri ${KIPRJMOD}/WS2812B-V4.lib)(options "")(descr ""))
 )
