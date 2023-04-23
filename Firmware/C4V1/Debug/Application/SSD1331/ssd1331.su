@@ -1,0 +1,6 @@
+../Application/SSD1331/ssd1331.c:18:6:ssd1331_command	16	static
+../Application/SSD1331/ssd1331.c:25:6:setPixel	16	static
+../Application/SSD1331/ssd1331.c:35:6:ssd1331_clear	8	static
+../Application/SSD1331/ssd1331.c:39:6:invert	16	static
+../Application/SSD1331/ssd1331.c:46:6:ssd1331_display	24	static,ignoring_inline_asm
+../Application/SSD1331/ssd1331.c:92:6:ssd1331_init	16	static

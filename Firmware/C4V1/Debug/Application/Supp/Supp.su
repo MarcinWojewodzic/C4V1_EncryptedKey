@@ -1,0 +1,12 @@
+../Application/Supp/Supp.c:28:10:map	24	static
+../Application/Supp/Supp.c:33:6:SUPP_ExtFlashMassErase	72	static
+../Application/Supp/Supp.c:50:6:SUPP_ExtFramhMassErase	80	static
+../Application/Supp/Supp.c:71:6:SUPP_ExtMemoryMassErase	80	static
+../Application/Supp/Supp.c:110:6:SUPP_ExtFlashPageErase	32	static
+../Application/Supp/Supp.c:125:6:SUPP_ButtonOffFlagTask	8	static
+../Application/Supp/Supp.c:173:6:SUPP_GetChipID	24	static
+../Application/Supp/Supp.c:181:6:SUPP_AES_Init	24	static
+../Application/Supp/Supp.c:206:6:SUPP_AES_EncryptBuffer	24	static
+../Application/Supp/Supp.c:213:6:SUPP_AES_DecryptBuffer	24	static
+../Application/Supp/Supp.c:220:6:SUPP_ReadPassword	32	static
+../Application/Supp/Supp.c:239:6:SUPP_GenerateNewPassword	112	static

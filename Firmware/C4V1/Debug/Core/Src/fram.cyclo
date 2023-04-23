@@ -1,0 +1,13 @@
+fram.c:13:6:fram_CsLow	1
+fram.c:17:6:fram_CsHigh	1
+fram.c:21:6:fram_SetWELBit	1
+fram.c:29:6:fram_SetProtectedBlocs	2
+fram.c:43:10:fram_Read32	1
+fram.c:49:6:fram_Write32	1
+fram.c:58:6:fram_ChipErase	2
+fram.c:66:20:fram_Increment32	2
+fram.c:82:9:fram_ReadSreg	1
+fram.c:92:6:fram_Write	1
+fram.c:104:6:fram_Read	1
+fram.c:116:10:fram_ReadID	1
+fram.c:126:6:fram_Init	1

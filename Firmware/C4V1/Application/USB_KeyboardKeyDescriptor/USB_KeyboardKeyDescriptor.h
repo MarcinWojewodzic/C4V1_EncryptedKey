@@ -1,0 +1,13 @@
+/*
+ * USB_KeyboardKeyDescriptor.h
+ *
+ *  Created on: Apr 9, 2023
+ *      Author: M
+ */
+
+#ifndef USB_KEYBOARDKEYDESCRIPTOR_USB_KEYBOARDKEYDESCRIPTOR_H_
+#define USB_KEYBOARDKEYDESCRIPTOR_USB_KEYBOARDKEYDESCRIPTOR_H_
+
+void USB_KeyBoardKeyDescriptor(uint8_t ASCII);
+
+#endif /* USB_KEYBOARDKEYDESCRIPTOR_USB_KEYBOARDKEYDESCRIPTOR_H_ */

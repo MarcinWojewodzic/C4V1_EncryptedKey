@@ -69,17 +69,18 @@ void Error_Handler(void);
 #define FRAM_CS_GPIO_Port GPIOA
 #define BUTTON_UP_Pin GPIO_PIN_3
 #define BUTTON_UP_GPIO_Port GPIOB
-#define BUTTON_LEFT_Pin GPIO_PIN_4
-#define BUTTON_LEFT_GPIO_Port GPIOB
+#define BUTTON_RIGHT_Pin GPIO_PIN_4
+#define BUTTON_RIGHT_GPIO_Port GPIOB
 #define BUTTON_DOWN_Pin GPIO_PIN_5
 #define BUTTON_DOWN_GPIO_Port GPIOB
 #define BUTTON_OK_Pin GPIO_PIN_6
 #define BUTTON_OK_GPIO_Port GPIOB
-#define BUTTON_RIGHT_Pin GPIO_PIN_7
-#define BUTTON_RIGHT_GPIO_Port GPIOB
+#define BUTTON_LEFT_Pin GPIO_PIN_7
+#define BUTTON_LEFT_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-
+#define FLASH_CS_GPIO_Port GPIOA
+#define FLASH_CS_Pin GPIO_PIN_9
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

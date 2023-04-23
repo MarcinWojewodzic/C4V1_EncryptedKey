@@ -1,0 +1,6 @@
+ssd1331.c:18:6:ssd1331_command	1
+ssd1331.c:25:6:setPixel	3
+ssd1331.c:35:6:ssd1331_clear	1
+ssd1331.c:39:6:invert	2
+ssd1331.c:46:6:ssd1331_display	6
+ssd1331.c:92:6:ssd1331_init	1

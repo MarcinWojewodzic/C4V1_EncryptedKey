@@ -12,10 +12,20 @@ RM := rm -rf
 -include USB_Device/Target/subdir.mk
 -include USB_Device/App/subdir.mk
 -include Middlewares/ST/STM32_USB_Device_Library/Core/Src/subdir.mk
--include Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/subdir.mk
+-include Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/subdir.mk
 -include Drivers/STM32G4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include Application/WS2812B/subdir.mk
+-include Application/USB_KeyboardKeyDescriptor/subdir.mk
+-include Application/Supp/subdir.mk
+-include Application/SSD1331/subdir.mk
+-include Application/SM/subdir.mk
+-include Application/Led/subdir.mk
+-include Application/Data/subdir.mk
+-include Application/Crc/subdir.mk
+-include Application/Buttons/subdir.mk
+-include Application/Aes/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -64,8 +74,8 @@ all: main-build
 main-build: C4V1.elf secondary-outputs
 
 # Tool invocations
-C4V1.elf C4V1.map: $(OBJS) $(USER_OBJS) C:\Users\M\STM32CubeIDE\workspace_1.10.1\C4V1\STM32G4A1KEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "C4V1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\M\STM32CubeIDE\workspace_1.10.1\C4V1\STM32G4A1KEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="C4V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C4V1.elf C4V1.map: $(OBJS) $(USER_OBJS) C:\Users\M\Desktop\C4V1\Firmware\C4V1\STM32G4A1KEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "C4V1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\M\Desktop\C4V1\Firmware\C4V1\STM32G4A1KEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="C4V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -1,0 +1,14 @@
+Aes.c:127:13:KeyExpansion	4
+Aes.c:200:6:AES_init_ctx	1
+Aes.c:218:13:AddRoundKey	3
+Aes.c:232:13:SubBytes	3
+Aes.c:247:13:ShiftRows	1
+Aes.c:275:16:xtime	1
+Aes.c:281:13:MixColumns	2
+Aes.c:333:13:InvMixColumns	2
+Aes.c:353:13:InvSubBytes	3
+Aes.c:365:13:InvShiftRows	1
+Aes.c:395:13:Cipher	2
+Aes.c:422:13:InvCipher	2
+Aes.c:452:6:AES_ECB_encrypt	1
+Aes.c:458:6:AES_ECB_decrypt	1

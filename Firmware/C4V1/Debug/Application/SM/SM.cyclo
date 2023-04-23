@@ -1,0 +1,10 @@
+SM.c:44:6:SM_Handle	3
+SM.c:56:6:SM_InitializeFunction	1
+SM.c:72:6:SM_IdleFunction	2
+SM.c:80:6:SM_RunningFunction	1
+SM.c:83:13:SM_ChangeState	4
+SM.c:96:13:BUT_ButtonUpCallback	1
+SM.c:102:13:BUT_ButtonRightCallback	1
+SM.c:108:13:BUT_ButtonLeftCallback	1
+SM.c:114:13:BUT_ButtonDownCallback	1
+SM.c:121:13:BUT_ButtonOkCallback	1

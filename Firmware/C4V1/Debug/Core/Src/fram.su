@@ -1,0 +1,13 @@
+../Core/Src/fram.c:13:6:fram_CsLow	16	static
+../Core/Src/fram.c:17:6:fram_CsHigh	16	static
+../Core/Src/fram.c:21:6:fram_SetWELBit	24	static
+../Core/Src/fram.c:29:6:fram_SetProtectedBlocs	24	static
+../Core/Src/fram.c:43:10:fram_Read32	24	static
+../Core/Src/fram.c:49:6:fram_Write32	32	static
+../Core/Src/fram.c:58:6:fram_ChipErase	24	static
+../Core/Src/fram.c:66:20:fram_Increment32	24	static
+../Core/Src/fram.c:82:9:fram_ReadSreg	24	static
+../Core/Src/fram.c:92:6:fram_Write	32	static
+../Core/Src/fram.c:104:6:fram_Read	32	static
+../Core/Src/fram.c:116:10:fram_ReadID	24	static
+../Core/Src/fram.c:126:6:fram_Init	24	static

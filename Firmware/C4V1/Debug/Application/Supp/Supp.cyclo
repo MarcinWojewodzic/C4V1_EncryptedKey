@@ -1,0 +1,12 @@
+Supp.c:28:10:map	1
+Supp.c:33:6:SUPP_ExtFlashMassErase	2
+Supp.c:50:6:SUPP_ExtFramhMassErase	3
+Supp.c:71:6:SUPP_ExtMemoryMassErase	4
+Supp.c:110:6:SUPP_ExtFlashPageErase	3
+Supp.c:125:6:SUPP_ButtonOffFlagTask	11
+Supp.c:173:6:SUPP_GetChipID	1
+Supp.c:181:6:SUPP_AES_Init	1
+Supp.c:206:6:SUPP_AES_EncryptBuffer	2
+Supp.c:213:6:SUPP_AES_DecryptBuffer	2
+Supp.c:220:6:SUPP_ReadPassword	3
+Supp.c:239:6:SUPP_GenerateNewPassword	12

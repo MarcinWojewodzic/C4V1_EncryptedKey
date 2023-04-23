@@ -1,24 +1,24 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2023 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2023 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "aes.h"
+#include "cordic.h"
 #include "dma.h"
 #include "rng.h"
 #include "spi.h"
@@ -28,6 +28,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "SM.h"
 
 /* USER CODE END Includes */
 
@@ -42,7 +43,6 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -53,13 +53,13 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+static void MX_NVIC_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 /* USER CODE END 0 */
 
 /**
@@ -91,23 +91,26 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_AES_Init();
   MX_RNG_Init();
-  MX_SPI1_Init();
-  MX_TIM2_Init();
   MX_USB_Device_Init();
-  /* USER CODE BEGIN 2 */
+  MX_CORDIC_Init();
+  MX_TIM8_Init();
+  MX_SPI1_Init();
 
+  /* Initialize interrupts */
+  MX_NVIC_Init();
+  /* USER CODE BEGIN 2 */
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+   while(1)
+   {
+      SM_Handle();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+   }
   /* USER CODE END 3 */
 }
 
@@ -132,8 +135,8 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV5;
-  RCC_OscInitStruct.PLL.PLLN = 68;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
+  RCC_OscInitStruct.PLL.PLLN = 85;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
@@ -157,6 +160,41 @@ void SystemClock_Config(void)
   }
 }
 
+/**
+  * @brief NVIC Configuration.
+  * @retval None
+  */
+static void MX_NVIC_Init(void)
+{
+  /* DMA1_Channel2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
+  /* DMA1_Channel3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel3_IRQn);
+  /* CORDIC_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(CORDIC_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(CORDIC_IRQn);
+  /* USB_LP_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(USB_LP_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(USB_LP_IRQn);
+  /* TIM8_BRK_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(TIM8_BRK_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM8_BRK_IRQn);
+  /* TIM8_UP_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(TIM8_UP_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM8_UP_IRQn);
+  /* TIM8_TRG_COM_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(TIM8_TRG_COM_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM8_TRG_COM_IRQn);
+  /* TIM8_CC_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(TIM8_CC_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM8_CC_IRQn);
+  /* DMA1_Channel1_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+}
+
 /* USER CODE BEGIN 4 */
 
 /* USER CODE END 4 */
@@ -168,11 +206,11 @@ void SystemClock_Config(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+   /* User can add his own implementation to report the HAL error return state */
+   __disable_irq();
+   while(1)
+   {
+   }
   /* USER CODE END Error_Handler_Debug */
 }
 
@@ -187,8 +225,9 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
-     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+   /* User can add his own implementation to report the file name and line
+      number, ex: printf("Wrong parameters value: file %s on line %d\r\n", file,
+      line) */
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
