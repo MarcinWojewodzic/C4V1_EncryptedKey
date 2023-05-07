@@ -3,6 +3,7 @@
 "./Application/Buttons/ButtonsConfig.o"
 "./Application/Crc/crc.o"
 "./Application/Data/Data.o"
+"./Application/Fram_SPI/Fram_spi.o"
 "./Application/Led/Led.o"
 "./Application/SM/SM.o"
 "./Application/SSD1331/ssd1331.o"

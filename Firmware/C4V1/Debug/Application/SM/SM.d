@@ -35,13 +35,12 @@ Application/SM/SM.o: ../Application/SM/SM.c ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Application/SM/SM.h ../Application/Buttons/Buttons.h \
  ../Application/Data/Data.h ../Application/SM/SM.h \
- ../Core/Inc/GFX_Color.h ../Application/Led/Led.h \
- ../Application/Supp/Supp.h \
+ ../Application/Fram_SPI/Fram_spi.h ../Core/Inc/GFX_Color.h \
+ ../Application/Led/Led.h ../Application/Supp/Supp.h \
  ../Application/USB_KeyboardKeyDescriptor/USB_KeyboardKeyDescriptor.h \
  ../Application/WS2812B/WS2812b.h ../Core/Inc/flash_spi.h \
- ../Core/Inc/fonts/fonts.h ../Core/Inc/fonts/font_8x5.h \
- ../Core/Inc/fram.h ../Core/Inc/rng.h ../Core/Inc/main.h \
- ../Core/Inc/spi.h ../Application/SSD1331/ssd1331.h \
+ ../Core/Inc/fonts/fonts.h ../Core/Inc/fonts/font_8x5.h ../Core/Inc/rng.h \
+ ../Core/Inc/main.h ../Core/Inc/spi.h ../Application/SSD1331/ssd1331.h \
  ../USB_Device/App/usb_device.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  ../USB_Device/Target/usbd_conf.h \
@@ -90,6 +89,7 @@ Application/SM/SM.o: ../Application/SM/SM.c ../Core/Inc/main.h \
 ../Application/Buttons/Buttons.h:
 ../Application/Data/Data.h:
 ../Application/SM/SM.h:
+../Application/Fram_SPI/Fram_spi.h:
 ../Core/Inc/GFX_Color.h:
 ../Application/Led/Led.h:
 ../Application/Supp/Supp.h:
@@ -98,7 +98,6 @@ Application/SM/SM.o: ../Application/SM/SM.c ../Core/Inc/main.h \
 ../Core/Inc/flash_spi.h:
 ../Core/Inc/fonts/fonts.h:
 ../Core/Inc/fonts/font_8x5.h:
-../Core/Inc/fram.h:
 ../Core/Inc/rng.h:
 ../Core/Inc/main.h:
 ../Core/Inc/spi.h:

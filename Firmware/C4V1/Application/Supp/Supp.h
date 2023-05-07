@@ -27,7 +27,7 @@ typedef union
 {
    PasswordStruct_TypeDef PasswordStruct;
    uint32_t PasswordTable[16];
-} Password_TypeDef;
+}Password_TypeDef;
 typedef struct
 {
    SMFlag_TypeDef SpecialCharacter;

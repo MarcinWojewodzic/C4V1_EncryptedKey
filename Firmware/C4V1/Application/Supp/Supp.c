@@ -11,17 +11,17 @@
 #include "Aes.h"
 #include "Data.h"
 #include "FramMemoryMap.h"
+#include "Fram_spi.h"
 #include "GFX_Color.h"
 #include "Led.h"
 #include "SM.h"
 #include "crc.h"
 #include "flash_spi.h"
-#include "fram.h"
 #include "rng.h"
 #include "ssd1331.h"
 #include "stdio.h"
 extern flash_t Flash;
-extern fram_t Fram;
+extern Fram_TypeDef Fram;
 uint8_t TempTable[SECTOR_SIZE] = { 0 };
 uint8_t AesKey[16]             = { 0 };
 AES_ctx Aes;
@@ -63,7 +63,7 @@ void SUPP_ExtFramhMassErase(void)
    }
    for(int i = 0; i < FRAM_NUMBER_OF_BYTES; i += 128)
    {
-      fram_Write(&Fram, i, TempTable, 128);
+      ExtFram_WriteData(&Fram, i, TempTable, 128);
       GFX_DrawFillRectangle(0, 20, map(i, 0, FRAM_NUMBER_OF_BYTES - 1, 0, 96), 5, GREEN);
       ssd1331_display(0);
    }
@@ -96,7 +96,7 @@ void SUPP_ExtMemoryMassErase(void)
    }
    for(int i = 0; i < FRAM_NUMBER_OF_BYTES; i += 128)
    {
-      fram_Write(&Fram, i, TempTable, 128);
+      ExtFram_WriteData(&Fram, i, TempTable, 128);
       GFX_DrawFillRectangle(0, 50, map(i, 0, FRAM_NUMBER_OF_BYTES - 1, 0, 96), 5, GREEN);
       ssd1331_display(0);
    }
@@ -222,7 +222,7 @@ void SUPP_ReadPassword(Password_TypeDef *Pass, uint32_t Number)
    uint32_t TempCrc = Crc(CRC_INITIAL_VALUE, PASSWORD_SIZE - CRC_LENGTH, (uint8_t *)Pass->PasswordTable);
    while(TempCrc != Pass->PasswordStruct.Crc)
    {
-      fram_Read(&Fram, Number * PASSWORD_SIZE + PASSWORD_START_ADDRESS, (uint8_t *)Pass->PasswordTable, PASSWORD_SIZE);
+      ExtFram_ReadData(&Fram, Number * PASSWORD_SIZE + PASSWORD_START_ADDRESS, (uint8_t *)Pass->PasswordTable, PASSWORD_SIZE);
       SUPP_AES_DecryptBuffer(Pass->PasswordTable, PASSWORD_SIZE / sizeof(uint32_t));
       TempCrc = Crc(CRC_INITIAL_VALUE, PASSWORD_SIZE - CRC_LENGTH, (uint8_t *)Pass->PasswordTable);
       if(TempCrc == Pass->PasswordStruct.Crc)
@@ -238,9 +238,11 @@ void SUPP_ReadPassword(Password_TypeDef *Pass, uint32_t Number)
 
 void SUPP_GenerateNewPassword(NewPasswordRules_TypeDef NewPassword)
 {
-   Password_TypeDef Pass      = { 0 };
-   Pass.PasswordStruct.Number = fram_Read32(&Fram, COUNTER_PASSWORD_ADDRESS);
-   fram_Increment32(&Fram, COUNTER_PASSWORD_ADDRESS);
+   Password_TypeDef Pass = { 0 };
+   uint32_t Temp         = sizeof(Password_TypeDef);
+   ExtFram_Read32(&Fram, COUNTER_PASSWORD_ADDRESS, &Temp);
+   Pass.PasswordStruct.Number = Temp;
+   ExtFram_Increment32(&Fram, COUNTER_PASSWORD_ADDRESS);
    Pass.PasswordStruct.PasswordLenght     = NewPassword.PasswordLength;
    Pass.PasswordStruct.PasswordNameLength = NewPassword.NameLength;
    for(int i = 0; i < NewPassword.NameLength; i++)
@@ -315,5 +317,5 @@ void SUPP_GenerateNewPassword(NewPasswordRules_TypeDef NewPassword)
    Pass.PasswordStruct.Crc = Crc(CRC_INITIAL_VALUE, PASSWORD_SIZE - CRC_LENGTH, (uint8_t *)Pass.PasswordTable);
    uint32_t TempAddr       = Pass.PasswordStruct.Number * PASSWORD_SIZE + PASSWORD_START_ADDRESS;
    SUPP_AES_EncryptBuffer(Pass.PasswordTable, PASSWORD_SIZE / sizeof(uint32_t));
-   fram_Write(&Fram, TempAddr, (uint8_t *)Pass.PasswordTable, PASSWORD_SIZE);
+   ExtFram_WriteData(&Fram, TempAddr, (uint8_t *)Pass.PasswordTable, PASSWORD_SIZE);
 }

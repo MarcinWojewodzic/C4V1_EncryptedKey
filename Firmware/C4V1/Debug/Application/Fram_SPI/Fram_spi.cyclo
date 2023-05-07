@@ -1,0 +1,17 @@
+Fram_spi.c:14:27:ExtFram_CsLow	1
+Fram_spi.c:19:27:ExtFram_CsHigh	1
+Fram_spi.c:24:27:ExtFram_Write	2
+Fram_spi.c:35:27:ExtFram_Read	2
+Fram_spi.c:46:27:ExtFram_FindDensity	3
+Fram_spi.c:59:27:ExtFram_ReadID	7
+Fram_spi.c:89:27:ExtFram_SetWELBit	4
+Fram_spi.c:107:20:ExtFram_SetProtectedBlocs	6
+Fram_spi.c:134:27:ExtFram_ReadSreg	5
+Fram_spi.c:158:20:ExtFram_WriteData	8
+Fram_spi.c:206:20:ExtFram_ReadData	8
+Fram_spi.c:254:20:ExtFram_Write32	1
+Fram_spi.c:263:20:ExtFram_Read32	2
+Fram_spi.c:273:20:ExtFram_Increment32	5
+Fram_spi.c:307:20:ExtFram_Decrement32	5
+Fram_spi.c:341:20:ExtFram_ChipErase	3
+Fram_spi.c:353:20:ExtFram_Init	7

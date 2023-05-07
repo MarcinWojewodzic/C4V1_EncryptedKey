@@ -1,4 +1,5 @@
-Application/Supp/Supp.o: ../Application/Supp/Supp.c ../Core/Inc/main.h \
+Application/Fram_SPI/Fram_spi.o: ../Application/Fram_SPI/Fram_spi.c \
+ ../Application/Fram_SPI/Fram_spi.h ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -33,13 +34,8 @@ Application/Supp/Supp.o: ../Application/Supp/Supp.c ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
- ../Application/Supp/Supp.h ../Application/SM/SM.h \
- ../Application/Aes/Aes.h ../Application/Data/Data.h \
- ../Application/Buttons/Buttons.h ../Config/FramMemoryMap.h \
- ../Application/Supp/Supp.h ../Application/Fram_SPI/Fram_spi.h \
- ../Core/Inc/GFX_Color.h ../Application/Led/Led.h \
- ../Application/Crc/crc.h ../Core/Inc/flash_spi.h ../Core/Inc/rng.h \
- ../Core/Inc/main.h ../Application/SSD1331/ssd1331.h
+ ../Application/Crc/crc.h
+../Application/Fram_SPI/Fram_spi.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -75,18 +71,4 @@ Application/Supp/Supp.o: ../Application/Supp/Supp.c ../Core/Inc/main.h \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
-../Application/Supp/Supp.h:
-../Application/SM/SM.h:
-../Application/Aes/Aes.h:
-../Application/Data/Data.h:
-../Application/Buttons/Buttons.h:
-../Config/FramMemoryMap.h:
-../Application/Supp/Supp.h:
-../Application/Fram_SPI/Fram_spi.h:
-../Core/Inc/GFX_Color.h:
-../Application/Led/Led.h:
 ../Application/Crc/crc.h:
-../Core/Inc/flash_spi.h:
-../Core/Inc/rng.h:
-../Core/Inc/main.h:
-../Application/SSD1331/ssd1331.h:

@@ -26,6 +26,7 @@ Application/Aes \
 Application/Buttons \
 Application/Crc \
 Application/Data \
+Application/Fram_SPI \
 Application/Led \
 Application/SM \
 Application/SSD1331 \

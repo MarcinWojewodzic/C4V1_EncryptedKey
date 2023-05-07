@@ -10,6 +10,7 @@
 
 #include "Buttons.h"
 #include "Data.h"
+#include "Fram_spi.h"
 #include "GFX_Color.h"
 #include "Led.h"
 #include "Supp.h"
@@ -17,7 +18,6 @@
 #include "WS2812b.h"
 #include "flash_spi.h"
 #include "fonts/fonts.h"
-#include "fram.h"
 #include "rng.h"
 #include "spi.h"
 #include "ssd1331.h"
@@ -38,7 +38,7 @@ SMTransitionTable_TypeDef SMTransitionTable[] = { { SM_STATE_INITIALIZE, SM_STAT
                                                   { SM_STATE_RUNNING, SM_STATE_IDLE, SM_EVENT_END_RUNNING } };
 SMFunction_TypeDef SMFunctionsTable[]         = { { SM_InitializeFunction }, { SM_IdleFunction }, { SM_RunningFunction } };
 flash_t Flash                                 = { 0 };
-fram_t Fram                                   = { 0 };
+Fram_TypeDef Fram                             = { 0 };
 extern USBD_HandleTypeDef hUsbDeviceFS;
 extern uint8_t UsbHidKeyboardReportBuffer[8];
 void SM_Handle(void)
@@ -64,7 +64,7 @@ void SM_InitializeFunction(void)
    BUT_RegisterCallback(DATA_GetButPtr(BUTTON_DOWN), BUT_ButtonDownCallback);
    BUT_RegisterCallback(DATA_GetButPtr(BUTTON_OK), BUT_ButtonOkCallback);
    flash_Init(&Flash, &hspi1, FLASH_CS_GPIO_Port, FLASH_CS);
-   fram_Init(&Fram, &hspi1, NULL, FRAM_CS_GPIO_Port, NULL, 0, FRAM_CS_Pin, 0);
+   ExtFram_Init(&Fram, &hspi1, NULL, FRAM_CS_GPIO_Port, NULL, 0, FRAM_CS_Pin, 0);
    SUPP_AES_Init();
    LED_BlinkPoll(10, 150, 15, 5, 100);
    DATA_GetSmPtr()->NewEvent = SM_EVENT_END_INIT;

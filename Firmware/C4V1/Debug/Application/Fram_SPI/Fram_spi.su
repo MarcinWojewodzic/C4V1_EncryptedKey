@@ -1,0 +1,17 @@
+../Application/Fram_SPI/Fram_spi.c:14:27:ExtFram_CsLow	16	static
+../Application/Fram_SPI/Fram_spi.c:19:27:ExtFram_CsHigh	16	static
+../Application/Fram_SPI/Fram_spi.c:24:27:ExtFram_Write	24	static
+../Application/Fram_SPI/Fram_spi.c:35:27:ExtFram_Read	24	static
+../Application/Fram_SPI/Fram_spi.c:46:27:ExtFram_FindDensity	24	static
+../Application/Fram_SPI/Fram_spi.c:59:27:ExtFram_ReadID	24	static
+../Application/Fram_SPI/Fram_spi.c:89:27:ExtFram_SetWELBit	24	static
+../Application/Fram_SPI/Fram_spi.c:107:20:ExtFram_SetProtectedBlocs	24	static
+../Application/Fram_SPI/Fram_spi.c:134:27:ExtFram_ReadSreg	24	static
+../Application/Fram_SPI/Fram_spi.c:158:20:ExtFram_WriteData	32	static
+../Application/Fram_SPI/Fram_spi.c:206:20:ExtFram_ReadData	32	static
+../Application/Fram_SPI/Fram_spi.c:254:20:ExtFram_Write32	32	static
+../Application/Fram_SPI/Fram_spi.c:263:20:ExtFram_Read32	32	static
+../Application/Fram_SPI/Fram_spi.c:273:20:ExtFram_Increment32	24	static
+../Application/Fram_SPI/Fram_spi.c:307:20:ExtFram_Decrement32	24	static
+../Application/Fram_SPI/Fram_spi.c:341:20:ExtFram_ChipErase	24	static
+../Application/Fram_SPI/Fram_spi.c:353:20:ExtFram_Init	24	static

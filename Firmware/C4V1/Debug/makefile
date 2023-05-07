@@ -22,6 +22,7 @@ RM := rm -rf
 -include Application/SSD1331/subdir.mk
 -include Application/SM/subdir.mk
 -include Application/Led/subdir.mk
+-include Application/Fram_SPI/subdir.mk
 -include Application/Data/subdir.mk
 -include Application/Crc/subdir.mk
 -include Application/Buttons/subdir.mk
